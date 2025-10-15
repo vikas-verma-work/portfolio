@@ -1,17 +1,19 @@
 "use client";
 import { motion } from "motion/react";
+import StackIcon from "tech-stack-icons";
 
 function Skill({ directionLeft }: { directionLeft: boolean }) {
   return (
     <div className="group relative flex cursor-pointer">
-      <motion.img
+      <motion.div
         initial={{ x: directionLeft ? -200 : 200, opacity: 0 }}
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         className="rounded-full border border-gray-500 object-cover w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 filter group-hover:grayscale transition duration-300 ease-in-out"
-        src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aHRtbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500"
-      />
+      >
+        <StackIcon name="react" />
+      </motion.div>
       <div className="h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 absolute opacity-0 group-hover:opacity-80 group-hover:bg-white transition duration-300 ease-in-out rounded-full z-0">
         <div className="flex items-center justify-center h-full">
           <p className="text-3xl font-bold text-black opacity-100">100%</p>
