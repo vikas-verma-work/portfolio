@@ -31,6 +31,7 @@ function Header() {
         className="flex flex-row items-center text-gray-300 cursor-pointer"
       >
         <SocialIcon
+        url="mailto:vikas.verma.work@outlook.com"
           className="social-icon cursor-pointer"
           network="email"
           fgColor="gray"

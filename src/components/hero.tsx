@@ -41,6 +41,7 @@ function Hero() {
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
         src={self_image}
         alt="vikas_pic"
+        priority
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
