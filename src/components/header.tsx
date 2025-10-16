@@ -4,7 +4,7 @@ import { SocialIcon } from "react-social-icons";
 
 function Header() {
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto xl:items-center">
+    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto xl:items-center z-50">
       <motion.div
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -15,13 +15,13 @@ function Header() {
           url="https://github.com/vikas-verma-work"
           fgColor="gray"
           bgColor="transparent"
-          className="cursor-pointer"
+          className="social-icon cursor-pointer"
         />
         <SocialIcon
           url="https://www.linkedin.com/in/vikas-verma-6a6995388/"
           fgColor="gray"
           bgColor="transparent"
-          className="cursor-pointer"
+          className="social-icon cursor-pointer"
         />
       </motion.div>
       <motion.div
@@ -31,12 +31,12 @@ function Header() {
         className="flex flex-row items-center text-gray-300 cursor-pointer"
       >
         <SocialIcon
-          className="cursor-pointer"
+          className="social-icon cursor-pointer"
           network="email"
           fgColor="gray"
           bgColor="transparent"
         />
-        <p className="uppercae hidden md:inline-flex text-sm text-gray-400">
+        <p className="uppercae hidden md:inline-flex text-sm text-gray-400 hover:text-white">
           Get in touch
         </p>
       </motion.div>

@@ -5,7 +5,7 @@ import { handleContactForm } from "@/actions/contactAction";
 
 function Contact() {
   const contact_input =
-    "outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#f7ab0a]/40 focus:text-[#f7ab0a]/40 hover:border-[#F7ab0a]/40";
+    "outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#10b981]/40 focus:text-[#10b981]/40 hover:border-[#10b981]/40";
 
   return (
     <div className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
@@ -17,19 +17,19 @@ function Contact() {
           I have got just what you need. Lets Talk
         </h4>
         <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-around">
-            <FaPhoneAlt className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+91-1234567890</p>
+          <div className="flex items-center space-x-5 justify-between">
+            <FaPhoneAlt className="text-[#10b981] h-7 w-7 animate-pulse" />
+            <p className="text-2xl">+91-8800271049</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-around">
-            <FaEnvelope className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+91-1234567890</p>
+          <div className="flex items-center space-x-5 justify-between">
+            <FaEnvelope className="text-[#10b981] h-7 w-7 animate-pulse" />
+            <p className="text-2xl">vikas.verma.work@outlook.com</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-around">
-            <FaMapMarkedAlt className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+91-1234567890</p>
+          <div className="flex items-center space-x-5 justify-between">
+            <FaMapMarkedAlt className="text-[#10b981] h-7 w-7 animate-pulse" />
+            <p className="text-2xl">Delhi, India</p>
           </div>
         </div>
         <form
@@ -63,7 +63,7 @@ function Contact() {
           />
           <button
             type="submit"
-            className="bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg"
+            className="bg-[#10b981] py-5 px-10 rounded-md text-black font-bold text-lg"
           >
             Submit
           </button>
