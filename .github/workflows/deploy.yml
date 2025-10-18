@@ -39,18 +39,18 @@ jobs:
             echo "run-command=npx --no-install" >> $GITHUB_OUTPUT
           fi
 
-      - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-
-      # ✅ Add this step before caching/install — this fixes "pnpm not found"
+      # ✅ Move pnpm setup BEFORE setup-node
       - name: 🧱 Setup pnpm (if needed)
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         uses: pnpm/action-setup@v4
         with:
           version: 9
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: 🧩 Setup GitHub Pages
         uses: actions/configure-pages@v5
