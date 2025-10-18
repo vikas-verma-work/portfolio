@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import chetu_logo from "@/assets/chetu-logo-white.png";
 import web_plant_logo from "@/assets/Webplant_logo2.webp";
 import avaids_logo from "@/assets/avaids.png";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 interface ExperienceCardProp {
   title: string;
@@ -40,7 +40,7 @@ function ExperienceCard({
 
         <div className="flex justify-center md:justify-start space-x-2 my-2">
           {techLogos?.map((logo, index) => (
-            <img
+            <motion.img
               key={index}
               className="h-10 w-10 rounded-full object-cover"
               src={logo}
