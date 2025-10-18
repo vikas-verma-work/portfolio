@@ -45,6 +45,7 @@ jobs:
           node-version: 20
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
+      # ✅ Add this step before caching/install — this fixes "pnpm not found"
       - name: 🧱 Setup pnpm (if needed)
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         uses: pnpm/action-setup@v4
