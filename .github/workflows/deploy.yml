@@ -1,4 +1,4 @@
-name: 🚀 Deploy Next.js 15 + React 19 to GitHub Pages
+name: 🚀 Deploy Next.js 15 Site to GitHub Pages
 
 on:
   push:
@@ -17,40 +17,25 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: 🧩 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🕵️ Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
-            echo "manager=pnpm" >> $GITHUB_OUTPUT
-            echo "install-command=install --frozen-lockfile" >> $GITHUB_OUTPUT
-            echo "run-command=pnpm" >> $GITHUB_OUTPUT
-          elif [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "install-command=install --frozen-lockfile" >> $GITHUB_OUTPUT
-            echo "run-command=yarn" >> $GITHUB_OUTPUT
-          else
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "install-command=ci --legacy-peer-deps" >> $GITHUB_OUTPUT
-            echo "run-command=npx --no-install" >> $GITHUB_OUTPUT
-          fi
-
-      # ✅ Move pnpm setup BEFORE setup-node
-      - name: 🧱 Setup pnpm (if needed)
-        if: steps.detect-package-manager.outputs.manager == 'pnpm'
+      - name: 🧱 Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      - name: ⚙️ Setup Node.js
+      - name: ⚙️ Setup Node.js (with pnpm cache)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: "pnpm"
+
+      - name: ⚡ Fast dependency install
+        run: pnpm install --prefer-offline --frozen-lockfile
 
       - name: 🧩 Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -61,18 +46,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/pnpm-lock.yaml', '**/yarn.lock') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
+          key: next-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-
+            next-${{ runner.os }}-
 
-      - name: 📦 Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.install-command }}
-
-      - name: 🏗️ Build Next.js app
-        run: ${{ steps.detect-package-manager.outputs.run-command }} next build
-
-      - name: 🌐 Export static site
-        run: ${{ steps.detect-package-manager.outputs.run-command }} next export
+      - name: 🏗️ Build Next.js site
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          GITHUB_PAGES: true
+        run: pnpm next build --no-lint
 
       - name: 📤 Upload static site
         uses: actions/upload-pages-artifact@v3
