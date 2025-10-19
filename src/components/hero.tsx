@@ -17,11 +17,16 @@ function BackgroundCircles() {
       transition={{ duration: 2.5 }}
       className="relative flex items-center justify-center"
     >
-      <div className="absolute w-[200px] h-[200px] border border-[#333333] rounded-full mt-52 animate-ping" />
-      <div className="absolute w-[300px] h-[300px] border border-[#333333] rounded-full mt-52 animate-ping" />
-      <div className="absolute w-[500px] h-[500px] border border-[#333333] rounded-full mt-52 animate-ping" />
-      <div className="absolute w-[650px] h-[650px] border border-[#10b981] rounded-full opacity-20 mt-52 animate-pulse" />
-      <div className="absolute w-[800px] h-[800px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      {/* <div className="absolute w-[200px] h-[200px] md:w-[150px] md:h-[150px] sm:w-[100px] sm:h-[100px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[300px] h-[300px] md:w-[150px] md:h-[150px] sm:w-[100px] sm:h-[100px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[500px] h-[500px] md:w-[150px] md:h-[150px] sm:w-[100px] sm:h-[100px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[650px] h-[650px] md:w-[150px] md:h-[150px] sm:w-[100px] sm:h-[100px] border border-[#10b981] rounded-full opacity-20 mt-52 animate-pulse" />
+      <div className="absolute w-[800px] h-[800px] md:w-[150px] md:h-[150px] sm:w-[100px] sm:h-[100px] border border-[#333333] rounded-full mt-52 animate-ping" /> */}
+      <div className="absolute w-[150px] h-[150px] md:w-[200px] md:h-[200px] sm:w-[250px] sm:h-[250px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[200px] h-[200px] md:w-[300px] md:h-[300px] sm:w-[300px] sm:h-[300px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[250px] h-[250px] md:w-[500px] md:h-[500px] sm:w-[350px] sm:h-[350px] border border-[#333333] rounded-full mt-52 animate-ping" />
+      <div className="absolute w-[300px] h-[300px] md:w-[650px] md:h-[650px] sm:w-[400px] sm:h-[400px] border border-[#10b981] rounded-full opacity-20 mt-52 animate-pulse" />
+      <div className="absolute w-[400px] h-[400px] md:w-[800px] md:h-[800px] sm:w-[500px] sm:h-[500px] border border-[#333333] rounded-full mt-52 animate-ping" />
     </motion.div>
   );
 }

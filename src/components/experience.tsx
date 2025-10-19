@@ -23,26 +23,28 @@ function ExperienceCard({
   techLogos,
 }: ExperienceCardProp) {
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200">
+    <article className="flex flex-col rounded-lg items-center sm:space-y-7 flex-shrink-0 w-[100%] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] md:p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200">
       <motion.img
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 xl:w-[200px] xl:h-[200px] object-contain object-center"
+        className="sm:w-32 sm:h-32 w-20 h-20 xl:w-[200px] xl:h-[200px] object-contain object-center"
         src={image.src}
         alt={company}
       />
 
       <div className="px-0 md:px-10 text-center md:text-left">
-        <h4 className="text-3xl font-light">{title}</h4>
-        <p className="font-bold text-2xl mt-1 text-white">{company}</p>
+        <h4 className="sm:text-3xl text-xl font-light">{title}</h4>
+        <p className="font-bold sm:text-2xl text-xl mt-1 text-white">
+          {company}
+        </p>
 
         <div className="flex justify-center md:justify-start space-x-2 my-2">
           {techLogos?.map((logo, index) => (
             <motion.img
               key={index}
-              className="h-10 w-10 rounded-full object-cover"
+              className="sm:h-10 sm:w-10 w-5 h-5 rounded-full object-cover"
               src={logo}
               alt="tech logo"
             />
@@ -53,7 +55,7 @@ function ExperienceCard({
           {duration}
         </p>
 
-        <ul className="list-disc space-y-3 ml-5 text-gray-200 text-base leading-6">
+        <ul className="list-disc space-y-3 ml-5 text-gray-200 text-base leading-6 sm:max-h-none max-h-[200px] sm:overflow-auto overflow-y-scroll">
           {points.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
@@ -120,13 +122,13 @@ function Experience() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
+      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 md:pb-0 pb-10 sm:justify-evenly justify-end mx-auto items-center"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Experience
       </h3>
 
-      <div className="w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory scrollbar-custom">
+      <div className="w-full flex space-x-5 overflow-x-scroll md:p-10 snap-x snap-mandatory scrollbar-custom">
         {experiences.map((exp, i) => (
           <ExperienceCard key={i} {...exp} />
         ))}

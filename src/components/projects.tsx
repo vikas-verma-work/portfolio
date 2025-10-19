@@ -84,18 +84,18 @@ interface ProjectProp {
 
 function ProjectCard({ project }: { project: ProjectProp }) {
   return (
-    <div className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center p-10 md:p-20 space-y-8">
+    <div className="w-screen flex-shrink-0 snap-center flex flex-col items-center justify-center p-10 md:p-20 sm:space-y-8 space-y-2">
       <motion.img
-        initial={{ y: -200, opacity: 0 }}
+        initial={{ y: -50, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         src={project.image.src}
         alt={project.title}
-        className="rounded-lg object-cover w-80 h-52 md:w-[500px] md:h-[300px]"
+        className="rounded-lg object-cover w-40 h-20 sm:w-80 sm:h-52 md:w-[500px] md:h-[300px]"
       />
-      <div className="space-y-5 max-w-4xl text-center md:text-left">
-        <h4 className="text-3xl md:text-4xl font-semibold">{project.title}</h4>
+      <div className="sm:space-y-5 space-y-2 max-w-4xl text-center md:text-left">
+        <h4 className="sm:text-4xl text-2xl font-semibold">{project.title}</h4>
         <p className="text-gray-300 text-sm md:text-base whitespace-pre-line">
           {project.description}
         </p>
@@ -111,7 +111,7 @@ export default function Projects() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full px-10 justify-evenly mx-auto items-center"
+      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full sm:px-10 px-0 sm:justify-evenly justify-end mx-auto items-center"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects

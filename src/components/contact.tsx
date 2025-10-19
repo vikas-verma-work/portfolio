@@ -18,7 +18,7 @@ function Contact() {
   const [failedMailClient, setfailedMailClient] = useState(false);
 
   const contact_input =
-    "outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-300 placeholder-gray-500 transition-all focus:border-[#10b981]/70 focus:text-[#10b981] hover:border-[#10b981]/40";
+    "outline-none bg-slate-400/10 rounded-sm border-b px-6 md:py-4 py-1 border-[#242424] text-gray-300 placeholder-gray-500 transition-all focus:border-[#10b981]/70 focus:text-[#10b981] hover:border-[#10b981]/40";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -66,39 +66,39 @@ function Contact() {
   };
 
   return (
-    <div className="flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
+    <div className="flex relative h-screen text-center md:text-left flex-row max-w-7xl px-10 pb-10 md:pb-10 justify-center mx-auto md:items-center items-end">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10 w-full md:w-auto">
-        <h4 className="text-4xl font-semibold text-center">
+      <div className="flex flex-col sm:space-y-10 space-y-6 w-full md:w-auto">
+        <h4 className="md:text-4xl sm:text-3xl text-xl font-semibold text-center">
           I’ve got just what you need — Let’s Talk
         </h4>
 
-        <div className="space-y-10">
-          <div className="flex items-center space-x-5 justify-between">
-            <FaPhoneAlt className="text-[#10b981] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">+91-8800271049</p>
+        <div className="md:space-y-10 space-y-2">
+          <div className="flex items-center md:space-x-5 justify-between">
+            <FaPhoneAlt className="text-[#10b981] sm:h-7 sm:w-7 w-4 h-4 animate-pulse" />
+            <p className="sm:text-2xl text-lg">+91-8800271049</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-between">
-            <FaEnvelope className="text-[#10b981] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">vikas.verma.work@outlook.com</p>
+          <div className="flex items-center md:space-x-5 justify-between">
+            <FaEnvelope className="text-[#10b981] sm:h-7 sm:w-7 w-4 h-4 animate-pulse" />
+            <p className="sm:text-2xl text-lg">vikas.verma.work@outlook.com</p>
           </div>
 
-          <div className="flex items-center space-x-5 justify-between">
-            <FaMapMarkedAlt className="text-[#10b981] h-7 w-7 animate-pulse" />
-            <p className="text-2xl">Delhi, India</p>
+          <div className="flex items-center md:space-x-5 justify-between">
+            <FaMapMarkedAlt className="text-[#10b981] sm:h-7 sm:w-7 w-4 h-4 animate-pulse" />
+            <p className="sm:text-2xl text-lg">Delhi, India</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col space-y-2 w-fit mx-auto mt-8"
+          className="flex flex-col space-y-2 md:w-fit w-[100%] mx-auto mt-8"
         >
-          <div className="flex space-x-2">
-            <div className="flex flex-col">
+          <div className="flex md:space-x-2 md:flex-nowrap flex-wrap md:space-y-0 space-y-2">
+            <div className="flex flex-col w-[100%]">
               <input
                 type="text"
                 placeholder="Name"
@@ -112,7 +112,7 @@ function Contact() {
               )}
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[100%]">
               <input
                 type="email"
                 placeholder="Email"
@@ -149,7 +149,7 @@ function Contact() {
             <textarea
               placeholder="Message"
               name="message"
-              rows={4}
+              rows={2}
               value={form.message}
               onChange={handleChange}
               className={contact_input}
@@ -163,7 +163,7 @@ function Contact() {
 
           <button
             type="submit"
-            className="bg-[#10b981] py-4 px-10 rounded-md text-black font-bold text-lg hover:bg-[#14cc9e] transition"
+            className="bg-[#10b981] md:py-4 py-1 px-10 rounded-md text-black font-bold text-lg hover:bg-[#14cc9e] transition"
           >
             Submit
           </button>
