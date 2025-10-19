@@ -111,7 +111,7 @@ export default function Projects() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full sm:px-10 px-0 sm:justify-evenly justify-end mx-auto items-center"
+      className="h-screen flex relative overflow-hidden flex-col text-left md:flex-row max-w-full sm:px-10 px-0 sm:justify-evenly justify-start mx-auto items-center sm:pt-0 pt-[160px]"
     >
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects

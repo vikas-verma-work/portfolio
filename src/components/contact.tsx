@@ -66,7 +66,7 @@ function Contact() {
   };
 
   return (
-    <div className="flex relative h-screen text-center md:text-left flex-row max-w-7xl px-10 pb-10 md:pb-10 justify-center mx-auto md:items-center items-end">
+    <div className="flex relative h-screen text-center md:text-left flex-row max-w-7xl px-10 pb-10 md:pb-10 justify-center mx-auto md:items-center items-start sm:pt-0 pt-[160px]">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Contact
       </h3>
